@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kboot-camel
+  name: kboot-camel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kboot-camel
+  template:
+    metadata:
+      labels:
+        app: kboot-camel
+    spec:
+      containers:
+        - image: docker-registry.default.svc:5000/myproject/demo
+          name: kboot-camel
+          imagePullPolicy: Always

@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta2
+kind: Config
+metadata:
+  name: kboot-camel
+build:
+  artifacts:
+  - image: kboot-camel
+    jib: {}
+  tagPolicy:
+    sha256: {}
+deploy:
+  kustomize:
+    paths:
+      - k8s/overlays/local

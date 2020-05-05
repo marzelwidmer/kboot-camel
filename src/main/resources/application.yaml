@@ -8,9 +8,17 @@ logging:
   pattern:
     console: "%clr(%d{yyyy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-40.40logger{0}){magenta} - %clr(%m){green}%n"
 
-# Management
 #management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
+#  health:
+#    probes:
+#      enabled: true
+#  endpoint:
+#    health:
+#      group:
+#        liveness:
+#          include: livenessProbe,cacheCheck
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

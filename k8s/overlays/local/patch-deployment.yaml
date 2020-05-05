@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kboot-camel
+spec:
+  template:
+    spec:
+      containers:
+        - image: kboot-camel
+          name: kboot-camel
+          imagePullPolicy: IfNotPresent

@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kboot-camel
+spec:
+  template:
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: kboot-camel-config
+      containers:
+        - name: kboot-camel
+          volumeMounts:
+            - mountPath: /config
+              name: config

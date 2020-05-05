@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  env: dev
+  app: kboot-camel
+
+commonAnnotations:
+  component: fsl-backend
+
+resources:
+  - ../../base/
+  - roles.yaml
+
+
+patchesStrategicMerge:
+  - patch-service.yaml
+  - patch-deployment.yaml
+  - use-configmap.yaml
+
+
+configMapGenerator:
+  - name: kboot-camel-config
+    files:
+      - ./config-files/application.yaml
