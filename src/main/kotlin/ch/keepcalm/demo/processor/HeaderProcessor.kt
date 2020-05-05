@@ -20,9 +20,8 @@ class HeaderProcessor : Processor {
     }
 
     // TODO: 05.05.20 DirtyHarry Implementation
-    private fun getFormattedData(orderDateTime: String): String {
-        val datetime = LocalDateTime.ofInstant(Instant.parse(orderDateTime), ZoneOffset.UTC)
-        return DateTimeFormatter.ofPattern("yyyy-MM-dd").format(datetime)
-    }
+    private fun getFormattedData(orderDateTime: String) = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        .format(LocalDateTime.ofInstant(Instant.parse(orderDateTime), ZoneOffset.UTC))
+
 
 }
