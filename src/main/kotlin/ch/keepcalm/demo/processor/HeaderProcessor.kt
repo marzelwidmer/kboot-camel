@@ -7,6 +7,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class HeaderProcessor : Processor {
 
@@ -17,6 +18,7 @@ class HeaderProcessor : Processor {
         val orderDateTime = XPathBuilder.xpath(XPATH_DATE).evaluate(exchange?.context, oderXml)
         val formattedOrderDate = getFormattedData(orderDateTime = orderDateTime)
         exchange?.`in`?.setHeader("orderDate", formattedOrderDate)
+        exchange?.`in`?.setHeader("uuid", UUID.randomUUID().toString().take(4))
     }
 
     // TODO: 05.05.20 DirtyHarry Implementation

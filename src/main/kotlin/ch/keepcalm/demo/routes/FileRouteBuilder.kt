@@ -14,13 +14,12 @@ class FileRouteBuilder : RouteBuilder() {
     @Throws(Exception::class)
     override fun configure() {
         from("file:$input")
-            .process(HeaderProcessor())
             .to("file:$output")
             .log("Camel body: \${body.class} \${body}")
 
         from("file:$workDir/orders/in?include=order-.*xml")
             .process(HeaderProcessor())
-            .to("file:$workDir/orders/out?fileName=\${header.orderDate}-\${header.CamelFileName}")
+            .to("file:$workDir/orders/out?fileName=\${header.orderDate}-\${header.uuid}-\${header.CamelFileName}")
             .log("Camel body: \${body.class} \${body}")
     }
 }
