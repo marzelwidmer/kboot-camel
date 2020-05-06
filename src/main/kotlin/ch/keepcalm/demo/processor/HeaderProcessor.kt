@@ -13,6 +13,7 @@ class HeaderProcessor : Processor {
 
     private final val XPATH_DATE = "/order/orderDate/text()"
 
+    @Throws(Exception::class)
     override fun process(exchange: Exchange?) {
         val oderXml = exchange?.`in`?.body
         val orderDateTime = XPathBuilder.xpath(XPATH_DATE).evaluate(exchange?.context, oderXml)

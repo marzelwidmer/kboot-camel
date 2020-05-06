@@ -5,6 +5,8 @@ target/
 !**/src/test/**
 
 .camel
+ops/*.log
+orders/out/*
 
 ### STS ###
 .apt_generated
