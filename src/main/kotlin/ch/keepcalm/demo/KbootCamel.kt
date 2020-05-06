@@ -9,4 +9,3 @@ class KbootCamel
 fun main(args: Array<String>) {
     runApplication<KbootCamel>(*args)
 }
-

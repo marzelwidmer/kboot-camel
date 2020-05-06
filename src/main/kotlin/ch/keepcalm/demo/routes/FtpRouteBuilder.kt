@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component
 @Component
 class FtpRouteBuilder : RouteBuilder() {
 
-
     private val ftpEndpoint ="ftp.walkerit.ch"
     private val username ="public"
     private val password ="Public8852"
