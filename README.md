@@ -1,5 +1,5 @@
 # Apache Camel with Kotlin and SpringBoot
 
-See more details here: https://blog.marcelwidmer.org/Camel-Kotlin-Spring-Boot
+See more details here: https://blog.marcelwidmer.org/camel-kotlin-spring-boot
 
 
