@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.4</version>
+        <version>3.3.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ch.keepcalm</groupId>
@@ -15,12 +15,9 @@
     <description>Demo project Spring Boot</description>
 
     <properties>
-        <java.version>11</java.version>
-        <kotlin.version>1.7.20</kotlin.version>
-        <camel.version>3.19.0</camel.version>
-
-        <jib.maven-plugin-version>1.8.0</jib.maven-plugin-version>
-        <jib.from.image>gcr.io/distroless/java:11</jib.from.image>
+        <java.version>17</java.version>
+        <kotlin.version>1.9.24</kotlin.version>
+        <camel.version>4.6.0</camel.version>
     </properties>
 
     <dependencyManagement>
@@ -84,12 +81,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>io.projectreactor</groupId>
@@ -127,60 +118,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <!-- Profiles    -->
-    <profiles>
-        <profile>
-            <id>jib</id>
-            <activation>
-                <os>
-                    <family>mac</family>
-                </os>
-            </activation>
-
-            <!-- Build -->
-            <build>
-                <plugins>
-                    <!-- Jib -->
-                    <plugin>
-                        <groupId>com.google.cloud.tools</groupId>
-                        <artifactId>jib-maven-plugin</artifactId>
-                        <version>${jib.maven-plugin-version}</version>
-                        <configuration>
-                            <from>
-                                <image>${jib.from.image}</image>
-                            </from>
-                            <allowInsecureRegistries>true</allowInsecureRegistries>
-                            <container>
-                                <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
-                            </container>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <phase>compile</phase>
-                                <goals>
-                                    <goal>dockerBuild</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
