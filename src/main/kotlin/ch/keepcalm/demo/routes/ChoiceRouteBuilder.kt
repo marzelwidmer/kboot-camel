@@ -20,7 +20,7 @@ class ChoiceRouteBuilder : RouteBuilder() {
             .to("log:ordersReceived")
             .choice()
                 .`when`(xpath(XPATH_SEARCH_ORLY))
-                .log("ORly received")
+                .log("Only received")
                 .to("file:$output/orly")
             .`when`(xpath(XPATH_SEARCH_PACKT))
                 .log("Packt received")

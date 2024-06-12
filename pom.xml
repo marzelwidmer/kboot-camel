@@ -63,10 +63,15 @@
             <artifactId>camel-ftp</artifactId>
         </dependency>
 
+        <!-- TEST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-spring-junit5</artifactId>
         </dependency>
     </dependencies>
 
